@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Project Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="logo">TaskFlow<span>.</span></a>
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#tasks">My Tasks</a>
+            <a href="#about">About Project</a>
+        </nav>
+        <span class="profile">TF</span>
+    </header>
+
+    <main class="container" id="dashboard">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">PROJECT WORKSPACE</p>
+                <h1>Manage your work smarter.</h1>
+                <p>Organize tasks, track progress, and achieve your goals.</p>
+            </div>
+            <button class="primary-btn" id="addTaskBtn">+ Add New Task</button>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <p>Total Tasks</p>
+                <h2 id="totalTasks">0</h2>
+                <span>All tasks in your workspace</span>
+            </article>
+            <article class="stat-card">
+                <p>Pending</p>
+                <h2 id="pendingTasks">0</h2>
+                <span>Tasks waiting to be completed</span>
+            </article>
+            <article class="stat-card">
+                <p>In Progress</p>
+                <h2 id="progressTasks">0</h2>
+                <span>Currently being worked on</span>
+            </article>
+            <article class="stat-card">
+                <p>Completed</p>
+                <h2 id="completedTasks">0</h2>
+                <span>Successfully finished tasks</span>
+            </article>
+        </section>
+
+        <section class="panel" id="tasks">
+            <div class="section-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>View and manage your project activities.</p>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <input type="search" id="searchInput"
+                       placeholder="Search tasks..." aria-label="Search tasks">
+
+                <select id="filterStatus" aria-label="Filter by status">
+                    <option value="All">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <select id="sortTasks" aria-label="Sort tasks">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="priority">Highest Priority</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+            <p id="taskCount" class="task-count"></p>
+        </section>
+
+        <section class="panel about" id="about">
+            <h2>About This Project</h2>
+            <p>
+                TaskFlow is a responsive project management application built
+                using HTML, CSS, and JavaScript. It demonstrates task planning,
+                user interaction, data management, validation, testing,
+                and responsive interface design.
+            </p>
+            <div class="tech-tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Local Storage</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>TaskFlow &copy; 2026 | Frontend Development Project</p>
+        </footer>
+    </main>
+
+    <dialog id="taskDialog">
+        <form id="taskForm">
+            <h2 id="dialogTitle">Create New Task</h2>
+
+            <label for="taskTitle">Task Title</label>
+            <input id="taskTitle" maxlength="100" required
+                   placeholder="Enter task title">
+
+            <label for="taskDescription">Description</label>
+            <textarea id="taskDescription" maxlength="500"
+                      placeholder="Describe your task"></textarea>
+
+            <label for="taskPriority">Priority</label>
+            <select id="taskPriority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <label for="taskStatus">Status</label>
+            <select id="taskStatus">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <div class="form-actions">
+                <button type="button" class="secondary-btn" id="cancelBtn">
+                    Cancel
+                </button>
+                <button type="submit" class="primary-btn">Save Task</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
